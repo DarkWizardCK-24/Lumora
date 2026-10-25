@@ -1,0 +1,19 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Every document lives under users/{uid}/... and is only reachable by that user.
+    match /users/{uid}/{collection}/{docId} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow create, update: if request.auth != null
+        && request.auth.uid == uid
+        && collection in ['subjects','topics','learning_goals','goal_milestones','study_sessions',
+                          'session_pauses','scheduled_activities','coding_problems','notes','tombstones']
+        && request.resource.data.keys().size() < 40          // bound document shape
+        && (collection == 'tombstones' || request.resource.data.id == docId);
+      allow delete: if request.auth != null && request.auth.uid == uid;
+    }
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
