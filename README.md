@@ -3,6 +3,7 @@
 </p>
 
 <h1 align="center">Lumora</h1>
+<p align="center">![Flutter](https://img.shields.io/badge/Flutter-02569B?logo=flutter&logoColor=white) ![SQLite](https://img.shields.io/badge/SQLite-003B57?logo=sqlite&logoColor=white) ![Firebase](https://img.shields.io/badge/Firebase-FFCA28?logo=firebase&logoColor=black)</p>
 <p align="center"><b>Learning Tracker — an offline-first personal learning OS</b><br/>
 Plan goals, track study sessions, practise code, take notes and finish what you start — by realistic deadlines.</p>
 
